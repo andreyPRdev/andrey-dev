@@ -1,0 +1,132 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Rubik:wght@900&display=swap');
+
+:root{--creme:#FFF9DE;--claro:#A9B68B;--escuro:#5E7050;--fundo:#3F4E36;--grafite:#2B2F26}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:auto}
+body{font:400 17px/1.6 Poppins,sans-serif;color:var(--grafite);background:var(--creme)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--grafite);outline-offset:3px}
+svg{fill:currentColor}
+h1,h2{font:900 clamp(56px,12vw,180px)/.88 Rubik,sans-serif;text-transform:uppercase;letter-spacing:-.02em;color:var(--escuro)}
+h3{font:600 20px/1.3 Poppins,sans-serif}
+p{max-width:56ch}
+
+/* menu e bolinhas */
+nav.site-nav{position:fixed;z-index:10;top:16px;left:50%;transform:translateX(-50%);display:flex;gap:6px;padding:6px;background:var(--creme);border:2px solid var(--grafite);border-radius:999px;max-width:94vw}
+nav.site-nav a{position:relative;padding:6px 14px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14px;color:var(--grafite);transition:background .25s ease,color .25s ease,transform .25s ease}
+nav.site-nav a:hover{background:var(--grafite);color:var(--creme)}
+nav.site-nav a.active{background:var(--escuro);color:var(--creme);transform:translateY(-1px)}
+nav.site-nav a.active::after{content:'';position:absolute;left:50%;bottom:4px;width:6px;height:2px;border-radius:2px;background:currentColor;transform:translateX(-50%);animation:nav-indicator-in .28s ease-out forwards}
+@keyframes nav-indicator-in{from{width:6px;opacity:.4}to{width:calc(100% - 24px);opacity:1}}
+@media(prefers-reduced-motion:reduce){nav.site-nav a,nav.site-nav a.active::after{animation:none;transition:none}}
+.dots{position:fixed;z-index:10;left:18px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px;mix-blend-mode:difference}
+.dots button{width:12px;height:12px;border-radius:50%;border:2px solid #fff;background:transparent;padding:0;cursor:pointer}
+.dots button.on{background:#fff}
+
+/* faixas: uma sobe por cima da outra */
+.s{min-height:100vh;padding:110px 8vw 60px;display:flex;flex-direction:column;justify-content:center;gap:32px;position:relative;box-shadow:0 -24px 40px rgba(0,0,0,.14)}
+@media(min-width:900px) and (min-height:720px){.s{position:sticky;top:0;height:100vh;overflow:hidden}}
+.s{min-height:100vh;padding:110px 8vw max(60px, env(safe-area-inset-bottom));display:flex;flex-direction:column;justify-content:center;gap:32px;position:relative;box-shadow:0 -24px 40px rgba(0,0,0,.14)}
+@media(min-width:900px) and (min-height:720px){.s{position:sticky;top:0;min-height:100vh;height:auto;overflow:visible}}
+.hero{background:var(--creme);align-items:flex-start;gap:22px}
+.hero h1{font-size:clamp(68px,14vw,220px);line-height:.82}
+.hero .nome{font:600 clamp(23px,2.8vw,36px)/1.2 Poppins,sans-serif}
+.hero .cargo{background:var(--escuro);color:var(--creme);padding:8px 16px;width:max-content;max-width:100%;font-size:14px;font-weight:600}
+.estrela{position:absolute;right:7vw;top:50%;transform:translateY(-50%);width:min(34vw,420px);color:var(--claro)}
+.sobre{background:var(--claro)}
+.sobre .linha{display:grid;grid-template-columns:1.15fr .85fr;gap:0;align-items:center;max-width:1080px}
+.caixa{background:var(--escuro);color:var(--creme);padding:clamp(28px,4vw,52px);margin-right:-44px;position:relative;z-index:1;box-shadow:12px 12px 0 rgba(43,47,38,.14)}
+.sobre-label{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.14em;opacity:.8;margin-bottom:18px}
+.sobre .caixa .sobre-destaque{font:600 clamp(22px,2.6vw,34px)/1.2 Poppins,sans-serif;max-width:23ch;margin-bottom:18px}
+.sobre .caixa p:not(.sobre-destaque){font-size:15px;line-height:1.65;margin-top:12px}
+.sobre-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.sobre-tags span{border:1px solid rgba(255,249,222,.55);border-radius:999px;padding:5px 11px;font-size:12px;font-weight:600}
+.about-photo{position:relative;justify-self:end;width:100%;max-width:390px;padding:12px;background:var(--creme);transform:rotate(2deg);box-shadow:0 18px 36px rgba(43,47,38,.18)}
+.about-photo>span{display:block;text-align:center;padding:10px 4px 2px;font-size:13px;font-weight:600;color:var(--grafite)}
+.foto{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.tec{background:var(--escuro)}
+.tec h2{color:var(--creme)}
+.grade{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tec article{background:var(--fundo);color:var(--creme);padding:20px 24px;display:flex;gap:16px;align-items:center}
+.tec svg{width:44px;height:44px;flex:none}
+.tec p{font-size:14px;line-height:1.4;opacity:.85}
+.proj{background:var(--creme)}
+.proj .grade{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--claro);display:grid;grid-template-columns:120px 1fr;gap:20px;padding:16px;text-decoration:none}
+.card:hover{background:var(--escuro);color:var(--creme)}
+.thumb{background:var(--escuro);color:var(--creme);display:grid;place-items:center;font:900 32px Rubik,sans-serif}
+.thumb{background:var(--escuro);color:var(--creme);display:grid;place-items:center}
+.thumb svg{width:54px;height:54px;fill:currentColor}
+.card p{font-size:14px;line-height:1.4}
+.tags{font-size:13px;font-weight:600;margin-top:6px}
+.cont{background:var(--escuro);color:var(--creme)}
+.cont h2{color:var(--creme)}
+.links{display:flex;flex-wrap:wrap;gap:12px}
+.links a{display:flex;align-items:center;gap:10px;background:var(--creme);color:var(--grafite);padding:12px 20px;font-weight:600;text-decoration:none}
+.links a:hover{background:var(--claro);transform:translateY(-2px)}
+.links a{transition:background .2s ease,transform .2s ease}
+.links svg{width:22px;height:22px;flex:none;fill:currentColor}
+.links svg{width:22px;height:22px}
+small{opacity:.8}
+
+@media(max-width:899px){
+ .hero{gap:20px}
+ .hero h1{font-size:clamp(72px,18vw,150px)}
+ .sobre .linha,.grade,.proj .grade{grid-template-columns:1fr}
+ .caixa{margin:0}.about-photo{justify-self:start;max-width:300px;margin:14px 0 0 12px}
+ .estrela{opacity:.35}.dots{display:none}
+ nav.site-nav a{padding:6px 9px;font-size:13px}
+}
+
+.tec article svg{width:44px;height:44px;flex:none;fill:none}
+
+
+/* Conteudo sem cortes em telas menores */
+@media(min-width:900px) and (min-height:720px){
+  .sobre{height:auto;overflow:visible}
+  .sobre{min-height:100vh}
+}
+
+@media(max-width:899px){
+  .s{min-height:100svh;height:auto;padding:122px 7vw 52px;overflow:visible}
+  .s{min-height:100svh;height:auto;padding:122px 7vw max(52px, env(safe-area-inset-bottom));overflow:visible}
+  nav.site-nav{width:min(94vw,640px);flex-wrap:wrap;justify-content:center;gap:3px;padding:5px}
+  nav.site-nav a{padding:5px 9px;font-size:12px}
+  nav.site-nav a.active::after{bottom:3px}
+  .hero{gap:20px}
+  .hero h1{font-size:clamp(72px,18vw,150px)}
+  .hero .nome{font-size:clamp(22px,6vw,32px)}
+  .hero .cargo{font-size:12px}
+  .sobre h2{font-size:clamp(58px,14vw,108px)}
+  .sobre .linha{gap:22px}
+  .caixa{padding:clamp(22px,6vw,34px);margin:0;box-shadow:7px 7px 0 rgba(43,47,38,.12)}
+  .sobre .caixa .sobre-destaque{font-size:clamp(22px,6vw,30px)}
+  .about-photo{justify-self:start;width:min(82%,300px);max-width:300px;margin:10px 0 0 10px}
+  .tec article{padding:16px;gap:12px}
+  .proj .grade{gap:12px}
+  .card{grid-template-columns:72px minmax(0,1fr);gap:14px;padding:12px}
+  .thumb svg{width:40px;height:40px}
+  .links{gap:9px}
+  .links a{padding:10px 13px;font-size:14px}
+}
+
+@media(max-width:480px){
+  body{font-size:15px}
+  .s{padding-inline:6vw}
+  nav.site-nav a{padding:4px 7px;font-size:11px}
+  .sobre-label{font-size:10px}
+  .sobre-tags{gap:6px;margin-top:18px}
+  .sobre-tags span{font-size:11px;padding:4px 9px}
+  .card h3{font-size:17px}
+  .card p{font-size:13px}
+  .thumb{min-height:100%}
+  .links a{gap:7px;padding:9px 11px}
+}
+
+@media(min-width:900px) and (min-height:720px){
+  .sobre{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);align-items:center;column-gap:3vw;row-gap:24px}
+  .sobre h2{font-size:clamp(62px,8vw,132px);line-height:.9}
+  .sobre .linha{width:100%;grid-template-columns:minmax(0,1.15fr) minmax(150px,.85fr);align-self:center}
+  .sobre .caixa{padding:clamp(22px,2.5vw,38px);margin-right:-22px}
+  .about-photo{max-width:330px}
+}
